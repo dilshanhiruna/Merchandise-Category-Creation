@@ -7,10 +7,8 @@ class Merchandise_Main_Category:
         self.Main_ID = Main_ID
         self.CategoryName =CategoryName
         self.active=active
-        self.sub_categories =[]
-
-    def add_sub_categories(self, Merchandise_Sub_Category):
-        self.sub_categories.append(Merchandise_Sub_Category)
+    
+    
             
 # class Merchandise_Sub_Category:
     
