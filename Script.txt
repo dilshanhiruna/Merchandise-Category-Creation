@@ -1,3 +1,5 @@
+CREATE DATABASE server_table
+
 CREATE TABLE Merchandise_Main_Category (
     Main_ID varchar(64) not null UNIQUE primary key ,
     catagoryName varchar(64),

@@ -4,7 +4,7 @@ from mysql.connector import Error
 try:
     connection = mysql.connector.connect(host='localhost',
                                          user='root',
-                                         database="server_table_rsa"
+                                         database="server_table"
                                          )
     if connection.is_connected():
         db_Info = connection.get_server_info()
