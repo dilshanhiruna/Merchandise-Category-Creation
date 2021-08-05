@@ -27,8 +27,9 @@ def add():
     newMainCat = str(input("Do you want to create new Category? (Y/N) "))
     if(newMainCat == "Y"):
         Main_Category_name =str(input("Enter Main Category name: "))
-        m=Merchandise_Main_Category(1,Main_Category_name,True)
-
-
-
+        m=Merchandise_Main_Category(100,Main_Category_name,True)
+        sql ="INSERT INTO merchandise_main_category(Main_ID,catagoryName,ActiveStatus) VALUES(500, '%s', true)" % (Main_Category_name)
+        dbconnector.mycursor.execute(sql)
+        dbconnector.connection.commit()
+        
 add()
