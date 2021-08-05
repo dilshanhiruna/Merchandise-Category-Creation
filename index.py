@@ -12,27 +12,36 @@ class Merchandise_Main_Category:
     def add_sub_categories(self, Merchandise_Sub_Category):
         self.sub_categories.append(Merchandise_Sub_Category)
             
-class Merchandise_Sub_Category:
+# class Merchandise_Sub_Category:
     
-    def __init__(self,Sub_ID ,CategoryName,active) :
-        self.Sub_ID  = Sub_ID
-        self.CategoryName =CategoryName
-        self.active=active
+#     def __init__(self,Sub_ID ,CategoryName,active) :
+#         self.Sub_ID  = Sub_ID
+#         self.CategoryName =CategoryName
+#         self.active=active
 
-# m = Merchandise_Main_Category(12,"Food",True)
-# m .add_sub_categories(Merchandise_Sub_Category(23,"Kottu",True,m))
-# m .add_sub_categories(Merchandise_Sub_Category(25,"Rice",True,m))
 
 def add():
     newMainCat = str(input("Do you want to create new Category? (Y/N) "))
     newSubCat = str(input("Do you want to create new Sub Category? (Y/N) "))
 
     if(newMainCat == "Y"):
+
+        UniqueID_Main =uuid.uuid4().hex
         Main_Category_name =str(input("Enter Main Category name: "))
         sql ="INSERT INTO merchandise_main_category(Main_ID,catagoryName,ActiveStatus)\
-             VALUES('%s', '%s', true)" % (uuid.uuid4().hex,Main_Category_name)
+             VALUES('%s', '%s', true)" % (UniqueID_Main,Main_Category_name)
         dbconnector.mycursor.execute(sql)
         dbconnector.connection.commit()
+
+        newPhoto = str(input("Do you want to add a Category image? (Y/N) "))
+
+        if(newPhoto == "Y"):
+            image_location ="image_location"
+            sql ="INSERT INTO image_catagories(level,category_id,image_location,dimensions)\
+            VALUES('%d', '%s', '%s','%d')" % (1,UniqueID_Main,image_location, 1920)
+            dbconnector.mycursor.execute(sql)
+            dbconnector.connection.commit()
+
     else:
         pass
 
@@ -69,9 +78,6 @@ def add():
         
     
 
-        
-        
-      
-
+    
 
 add()

@@ -1,0 +1,27 @@
+CREATE TABLE Merchandise_Main_Category (
+    Main_ID varchar(64) not null UNIQUE primary key ,
+    catagoryName varchar(64),
+    ActiveStatus boolean
+);
+
+CREATE TABLE Merchandise_Sub_Category  (
+    Sub_ID varchar(64) unique primary key,
+    ActiveStatus boolean,
+	category_id varchar(64) ,
+    FOREIGN KEY (category_id) REFERENCES Merchandise_Main_Category (Main_ID)
+);
+
+drop table Merchandise_Sub_Category;
+drop table Merchandise_Main_Category;
+
+
+CREATE TABLE Image_Catagories ( 
+	Level INT NOT NULL ,
+    category_id varchar(64) ,
+	image_location VARCHAR(64),
+    dimensions INT NOT NULL,
+    FOREIGN KEY (category_id) REFERENCES Merchandise_Main_Category (Main_ID)
+ 
+ )
+ 
+ 
